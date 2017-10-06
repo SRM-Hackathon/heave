@@ -1,3 +1,5 @@
+from bs4 import BeautifulSoup as bs
+import requests
 from django.shortcuts import render,get_object_or_404
 from django.http import HttpResponse,JsonResponse
 from . models import *
@@ -39,4 +41,12 @@ def leaderboard(request):
 		out.append({w:polls[w]})
 
 	return HttpResponse(out)
-
+def news(request):
+	url='http://www.indiaenvironmentportal.org.in/news/top/'
+	r=requests.get(url)
+	data={}
+	soup=bs(r.content,'html.parser')
+	list_news=soup.findAll('div',{'class':'text'})[:3]
+	for feeds in list_news:
+		data[feeds.h3.a.get_text()]=feeds.h3.a['href']
+	return JsonResponse(data)	
