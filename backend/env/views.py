@@ -29,4 +29,14 @@ def tree_loc(request):
 		t.save()
 	else:
 		return JsonResponse({"Error":"Create value not set."})
+def leaderboard(request):
+	user_list=user_auth.objects.all()
+	polls={}
+	out=[]
+	for user in user_list:
+		polls[user.user_name]=user.points
+	for w in sorted(polls, key=polls.get,reverse=True):
+		out.append({w:polls[w]})
+
+	return HttpResponse(out)
 
