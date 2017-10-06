@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:background="#B9DDAD"
+    android:layout_height="match_parent">
 
 
     <TextView
@@ -24,4 +26,95 @@
         android:onClick="back"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView23"
+        android:layout_alignStart="@+id/textView23"
+        android:layout_alignTop="@+id/imageView8"
+        android:layout_marginTop="12dp"
+        android:fontFamily="casual"
+        android:text="DataBase and Backend Developer"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="UI Design and Front End Developer"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="34dp"
+        android:layout_marginStart="34dp" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="casual"
+        android:text="Android Backend Developer and UX"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:layout_alignTop="@+id/imageView10"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="21dp"
+        android:layout_marginEnd="21dp" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/imgbord"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/mani"
+        android:layout_marginTop="39dp"
+        android:layout_below="@+id/textView24"
+        android:layout_toRightOf="@+id/imageView"
+        android:layout_toEndOf="@+id/imageView" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/imgbord"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/me"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/textView22"
+        android:layout_toEndOf="@+id/textView22"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/imgbord"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/z"
+        android:layout_marginTop="78dp"
+        android:layout_below="@+id/imageView9"
+        android:layout_alignLeft="@+id/imageView8"
+        android:layout_alignStart="@+id/imageView8" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Sophomores @ CSE , NIT Trichy"
+        android:textAllCaps="true"
+        android:textColor="#00918F"
+        android:textStyle="bold"
+        android:layout_below="@+id/textView5"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
