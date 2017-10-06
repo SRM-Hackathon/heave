@@ -10,6 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EdgeEffect;
 import android.widget.EditText;
@@ -34,8 +36,10 @@ import javax.net.ssl.HttpsURLConnection;
 public class login extends AppCompatActivity {
     EditText editText;
     EditText editText1;
+    private Animation myAnim;
     ProgressBar progressBar;
     static int i=0;
+    Button b;
 
 
     @Override
@@ -44,13 +48,16 @@ public class login extends AppCompatActivity {
         setContentView(R.layout.login);
         editText = (EditText) findViewById(R.id.editText);
         editText1 = (EditText) findViewById(R.id.editText2);
+        b=(Button) findViewById(R.id.button);
        // progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
-
+        myAnim = AnimationUtils.loadAnimation(this, R.anim.shake);
+        b.setAnimation(myAnim);
 
     }
     public void login(View view)
     {
+        b.setAnimation(myAnim);
         new SendPostRequest().execute(editText.getText().toString(),editText1.getText().toString());
 
     }

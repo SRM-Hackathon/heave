@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         PrimaryDrawerItem i3 =new PrimaryDrawerItem().withIdentifier(3).withName("Thanks Bucket").withIcon(getResources().getDrawable(R.drawable.thanks));
         PrimaryDrawerItem i4 =new PrimaryDrawerItem().withIdentifier(4).withName("My Trees").withIcon(getResources().getDrawable(R.drawable.trees));
         PrimaryDrawerItem i5 =new PrimaryDrawerItem().withIdentifier(5).withName("Create Events").withIcon(getResources().getDrawable(R.drawable.event));
-        PrimaryDrawerItem i6 =new PrimaryDrawerItem().withIdentifier(6).withName("Oxygen Consumption").withIcon(getResources().getDrawable(R.drawable.oxygen));
+        PrimaryDrawerItem i6 =new PrimaryDrawerItem().withIdentifier(6).withName("Pollution Feeds").withIcon(getResources().getDrawable(R.drawable.poll));
         PrimaryDrawerItem i7 =new PrimaryDrawerItem().withIdentifier(7).withName("About Us").withIcon(getResources().getDrawable(R.drawable.about));
 
 
