@@ -5,4 +5,5 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.dashboard, name='dashboard'),
+    url(r'^tree/$',views.tree_loc,name='tree_loc'),
 ]
