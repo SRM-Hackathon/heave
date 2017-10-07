@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -32,6 +33,7 @@ import java.util.Iterator;
 import javax.net.ssl.HttpsURLConnection;
 
 public class login extends AppCompatActivity {
+    global g;
     EditText editText;
     EditText editText1;
     ProgressBar progressBar;
@@ -134,6 +136,20 @@ public class login extends AppCompatActivity {
         protected void onPostExecute(String result) {
             Toast.makeText(getApplicationContext(), result,
                     Toast.LENGTH_LONG).show();
+            try {
+                JSONObject jsonObject = new JSONObject(result);
+                JSONObject object = jsonObject.optJSONObject("fields");
+                global.fullname = object.optString("full_name");
+                Log.v("hhaha",""+ global.fullname);
+                global.Contact = object.optString("email");
+                global.points = object.optInt("points");
+                global.age = object.optString("age");
+                global.user_id = jsonObject.optString("pk");
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
 
             if(i==1)
             {
