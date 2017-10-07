@@ -35,7 +35,10 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class login extends AppCompatActivity {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 3f94917ac1ebf93dc5284a4ef076c901201ccb5a
     Double progress=0.0;
     global g;
 >>>>>>> 3f94917ac1ebf93dc5284a4ef076c901201ccb5a
@@ -146,8 +149,7 @@ public class login extends AppCompatActivity {
         protected void onPostExecute(String result) {
             Toast.makeText(getApplicationContext(),result,
                     Toast.LENGTH_LONG).show();
-<<<<<<< HEAD
-=======
+
             try {
                 JSONObject jsonObject = new JSONObject(result);
                 JSONObject object = jsonObject.optJSONObject("fields");
@@ -164,7 +166,6 @@ public class login extends AppCompatActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
->>>>>>> 3f94917ac1ebf93dc5284a4ef076c901201ccb5a
 
             if(i==1)
             {
