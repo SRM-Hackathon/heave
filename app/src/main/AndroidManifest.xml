@@ -27,6 +27,7 @@
     <activity android:name=".MyTree"/>
     <activity android:name=".Pollution"/>
     <activity android:name=".Thanks"/>
+        <activity android:name=".LeaderBoard"/>
 
     </application>
 
