@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 .withActivity(this)
                 .withCompactStyle(false)
                 .withSavedInstance(savedInstanceState)
-                .withHeaderBackground(R.drawable.nav1)
+                .withHeaderBackground(R.drawable.zuck)
                 .addProfiles(
                         new ProfileDrawerItem().withName("Kumar Paritosh").withEmail("kpritosh98@gmail.com").withIcon(getResources().getDrawable(R.drawable.me))
                 )
