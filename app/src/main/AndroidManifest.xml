@@ -27,25 +27,24 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MainActivity"/>
-
+    <activity android:name=".MainActivity"/>
     <activity android:name=".profile"/>
     <activity android:name=".AboutUs"/>
     <activity android:name=".createEvents"/>
     <activity android:name=".MyTree"/>
     <activity android:name=".Pollution"/>
     <activity android:name=".Thanks"/>
-<<<<<<< HEAD
-        <activity android:name=".LeaderBoard"/>
-
-=======
+     <activity android:name=".LeaderBoard"/>
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
         <meta-data
-            android:name="com.google.android.maps.v2.API_KEY"
-            android:value="@string/google_maps_key" />
->>>>>>> 5f186674568edd87c1b665f7138d72ae982ddcc8
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_place_api" />
+
+
+
     </application>
 
 </manifest>

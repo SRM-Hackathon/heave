@@ -93,7 +93,7 @@ public class Browsetrees extends Fragment {
                 map.addMarker(new MarkerOptions().position(sydney).title("Marker Title").snippet("Marker Description").icon(BitmapDescriptorFactory.fromResource(R.drawable.m)));
 
                 // For zooming automatically to the location of the marker
-                CameraPosition cameraPosition = new CameraPosition.Builder().target(sydney).zoom(12).build();
+                CameraPosition cameraPosition = new CameraPosition.Builder().target(sydney).zoom(15).build();
                 map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
 
@@ -112,7 +112,7 @@ public class Browsetrees extends Fragment {
         } catch (GooglePlayServicesNotAvailableException e) {
             e.printStackTrace();
         }*/
-        new browsetrees().execute("No",global.user_id);
+        new browsetrees().execute("No","__all");
 
         return view;
     }
@@ -130,7 +130,7 @@ public class Browsetrees extends Fragment {
 
                 JSONObject postDataParams = new JSONObject();
                 postDataParams.put("create", arg0[0]);
-                postDataParams.put("user_id", arg0[1]);
+                postDataParams.put("user_id", "__all");
                 Log.v("pari",""+ arg0[1]);
                 Log.e("params",postDataParams.toString());
 
@@ -204,7 +204,6 @@ public class Browsetrees extends Fragment {
                     Double d1 = Double.parseDouble(object.optString("tree_loc_lat"));
                     Double d2 = Double.parseDouble(object.optString("tree_loc_long"));
                     Log.v("lol",""+ global.user_id);
-
                     Log.v("tree ","" + object.optString("user"));
                     Log.v("truth", ""+(user== global.user_id));
                     if(user.equals(global.user_id)) {

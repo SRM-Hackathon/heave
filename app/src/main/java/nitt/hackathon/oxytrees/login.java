@@ -35,6 +35,7 @@ import java.util.Iterator;
 import javax.net.ssl.HttpsURLConnection;
 
 public class login extends AppCompatActivity {
+    Double progress=0.0;
     global g;
     EditText editText;
     EditText editText1;
@@ -106,7 +107,7 @@ public class login extends AppCompatActivity {
 
                     StringBuffer sb = new StringBuffer("");
                     String line="";
-                    int i=0;
+                   // int i=0;
 
 
                     while((line = in.readLine()) != null) {
@@ -141,7 +142,7 @@ public class login extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String result) {
-            Toast.makeText(getApplicationContext(), result,
+            Toast.makeText(getApplicationContext(),result,
                     Toast.LENGTH_LONG).show();
             try {
                 JSONObject jsonObject = new JSONObject(result);
@@ -153,15 +154,18 @@ public class login extends AppCompatActivity {
                 global.age = object.optString("age");
                 global.user_id = jsonObject.optString("pk");
 
+
+
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-
 
             if(i==1)
             {
                 Intent intent = new Intent(login.this,MainActivity.class);
                 startActivity(intent);}
+
         }
     }
 
