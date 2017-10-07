@@ -1,5 +1,6 @@
 package nitt.hackathon.oxytrees.fragment;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -8,6 +9,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import nitt.hackathon.oxytrees.CustomAdapter;
 import nitt.hackathon.oxytrees.R;
@@ -122,7 +126,36 @@ public class FriendFragment extends Fragment {
             mDataset3[i] = icon[i];
         }
     }
-}
+
+
+
+    public void selectImage(View view) {
+        // mp.start();
+        final Dialog dialog = new Dialog(getActivity());
+        dialog.setContentView(R.layout.okay);
+        dialog.setTitle("CREATE EVENT");
+        Button btnExit = (Button) dialog.findViewById(R.id.button3);
+        EditText e1 = (EditText) dialog.findViewById(R.id.editText3);
+        EditText e2 = (EditText) dialog.findViewById(R.id.editText4);
+        btnExit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(),"CREATED",Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
+
+    }
+
+
+
+
+
+
+
+    }
 
 
 
