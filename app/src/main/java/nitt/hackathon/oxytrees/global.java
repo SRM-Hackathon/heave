@@ -9,6 +9,7 @@ public class global {
     public static String fullname= "";
     public static String Contact="";
     public static String age="",oxygenConsumption="";
+    public static String lat="",lng="";
     public static int points = 0;
 
 

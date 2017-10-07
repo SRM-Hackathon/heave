@@ -6,11 +6,13 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Toast;
 
 
 import com.mikepenz.materialdrawer.Drawer;
@@ -22,6 +24,8 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 import nitt.hackathon.oxytrees.Tab.MyAdapter;
 import nitt.hackathon.oxytrees.Tab.SlidingTabLayout;
+
+import static nitt.hackathon.oxytrees.R.drawable.log;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -117,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
                         {
 
                             case 0:
-                                //Toast.makeText(getApplicationContext(),"okay",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(),"okay", Toast.LENGTH_SHORT).show();
                                 Intent i = new Intent(getApplicationContext(), MainActivity.class);
                                 startActivity(i);
                                 // fragmentManager.beginTransaction()
@@ -125,6 +129,8 @@ public class MainActivity extends AppCompatActivity {
 
                                 break;
                             case 1:
+                                Log.v("see","imam");
+                                Toast.makeText(getApplicationContext(),"dekh le",Toast.LENGTH_SHORT).show();
                                 Intent j = new Intent(getApplicationContext(), profile.class);
                                 startActivity(j);
                                 //Toast.makeText(getApplicationContext(),"dekh le",Toast.LENGTH_SHORT).show();
@@ -154,8 +160,9 @@ public class MainActivity extends AppCompatActivity {
                                 Intent r = new Intent(getApplicationContext(),AboutUs.class);
                                 startActivity(r);
                                 break;
-
-
+                            default:
+                                Toast.makeText(getApplicationContext(),"default okay",Toast.LENGTH_SHORT).show();
+                                break;
                         }
 
 

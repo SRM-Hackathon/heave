@@ -34,6 +34,11 @@ import java.util.Iterator;
 import javax.net.ssl.HttpsURLConnection;
 
 public class login extends AppCompatActivity {
+<<<<<<< HEAD
+=======
+    Double progress=0.0;
+    global g;
+>>>>>>> 3f94917ac1ebf93dc5284a4ef076c901201ccb5a
     EditText editText;
     EditText editText1;
     private Animation myAnim;
@@ -104,7 +109,7 @@ public class login extends AppCompatActivity {
 
                     StringBuffer sb = new StringBuffer("");
                     String line="";
-                    int i=0;
+                   // int i=0;
 
 
                     while((line = in.readLine()) != null) {
@@ -139,13 +144,33 @@ public class login extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String result) {
-            Toast.makeText(getApplicationContext(), result,
+            Toast.makeText(getApplicationContext(),result,
                     Toast.LENGTH_LONG).show();
+<<<<<<< HEAD
+=======
+            try {
+                JSONObject jsonObject = new JSONObject(result);
+                JSONObject object = jsonObject.optJSONObject("fields");
+                global.fullname = object.optString("full_name");
+                Log.v("hhaha",""+ global.fullname);
+                global.Contact = object.optString("email");
+                global.points = object.optInt("points");
+                global.age = object.optString("age");
+                global.user_id = jsonObject.optString("pk");
+
+
+
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+>>>>>>> 3f94917ac1ebf93dc5284a4ef076c901201ccb5a
 
             if(i==1)
             {
                 Intent intent = new Intent(login.this,MainActivity.class);
                 startActivity(intent);}
+
         }
     }
 
