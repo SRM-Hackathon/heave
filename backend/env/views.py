@@ -11,14 +11,18 @@ def dashboard(request):
 	user=get_object_or_404(user_auth,pk=request.POST['user_id'])
 	if( user.user_pwd== request.POST['user_pwd']):
 		data=serializers.serialize("json",user_auth.objects.filter(pk=user))
-		return HttpResponse(data)
+		
+		return JsonResponse(json.loads(data)[0])
 	else:
 		return JsonResponse({"Error":"Login ERROR"})
 @csrf_exempt
 def tree_loc(request):
 	if request.POST['create']=="No":
-		user_id=request.POST['user_id']
-		trees=serializers.serialize("json",tree_data.objects.filter(user=user_id))
+		user_name=get_object_or_404(user_auth,pk=request.POST.get("user_id",False))
+		if user_name=="__all":
+			trees=serializers.serialize("json",tree_data.objects.all())
+		else:
+			trees=serializers.serialize("json",tree_data.objects.filter(user=user_name))
 		return HttpResponse(trees)
 	elif request.POST['create']=="Yes":
 		user_id=request.POST['user_id']
@@ -31,6 +35,7 @@ def tree_loc(request):
 		t.save()
 	else:
 		return JsonResponse({"Error":"Create value not set."})
+@csrf_exempt
 def leaderboard(request):
 	user_list=user_auth.objects.all()
 	polls={}
@@ -41,12 +46,21 @@ def leaderboard(request):
 		out.append({w:polls[w]})
 
 	return HttpResponse(out)
+@csrf_exempt
 def news(request):
-	url='http://www.indiaenvironmentportal.org.in/news/top/'
-	r=requests.get(url)
+	user=get_object_or_404(user_auth,pk=request.POST['user_id'])
+	url1='http://www.indiaenvironmentportal.org.in/news/top/'
+	url2='https://api.breezometer.com/baqi/?lat={}&lon={}&key=ef90b1d355fd4d05b610c217afbe8fbe'.format(user.user_loc_lat,user.user_loc_long)
+	r1=requests.get(url1)
+	r2=requests.get(url2).json()
 	data={}
-	soup=bs(r.content,'html.parser')
+	count=1
+	soup=bs(r1.content,'html.parser')
 	list_news=soup.findAll('div',{'class':'text'})[:3]
+	env_data={'aqi':r2['breezometer_aqi'],'description':r2['breezometer_description'],'effects':r2['dominant_pollutant_text']['effects']}
 	for feeds in list_news:
-		data[feeds.h3.a.get_text()]=feeds.h3.a['href']
+		data['Heading'+str(count)]=feeds.h3.a.get_text()
+		data['Link'+str(count)]=feeds.h3.a['href']
+		count+=1
+	data.update(env_data)
 	return JsonResponse(data)	
